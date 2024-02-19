@@ -1,14 +1,14 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #2b2b2b;
-    color: #f8f8f8;
+    background-color: #f4f4f4; /* Light grey for a neutral, bright background */
+    color: #333; /* Dark grey for contrast and readability */
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #9a0000;
-    color: #fff;
+    background-color: #5D1049; /* A deep, rich purple for elegance and mystery */
+    color: #FFFFFF; /* White text for clarity */
     padding: 20px 10px;
     text-align: center;
 }
@@ -24,25 +24,15 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #FFFFFF; /* White links for contrast against the purple background */
     text-decoration: none;
 }
 
 section {
     padding: 20px;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #ccc; /* Lighter border for subtle division */
 }
 
 h1, h2 {
-    color: #fed941;
-}
-
-footer {
-    background-color: #1a1a1a;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    color: #3A9AD9; /* A vibrant blue for headings, adding a pop of color */
 }
