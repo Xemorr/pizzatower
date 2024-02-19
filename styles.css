@@ -1,0 +1,65 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 40px;
+    background-color: #f4f4f4;
+  }
+  .survey-container {
+    max-width: 600px;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .question {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .button {
+    background-color: transparent;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: 1em;
+    color: #555;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  .button:hover {
+    transform: translateY(-3px);
+  }
+  .button.green {
+    background-color: #4CAF50; /* Green */
+  }
+  .button.purple {
+    background-color: #9C27B0; /* Purple */
+  }
+  .button.grey {
+    background-color: #efefef;
+  }
+  .submit-button {
+    background-color: #008CBA; /* Blue */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .submit-button:hover {
+    background-color: #005f73;
+  }
+  .button.selected {
+    background-color: white;
+    color: #555;
+    transform: scale(1.1); /* Slightly enlarges the selected button */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional: adds a shadow to the selected button */
+  }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survey Question</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="survey-container">
+  <div class="question">You regularly make new friends.</div>
+  <div class="buttons" data-question="1">
+    <button class="button green" onclick="selectButton(this)">1</button>
+    <button class="button green" onclick="selectButton(this)">2</button>
+    <button class="button green" onclick="selectButton(this)">3</button>
+    <button class="button grey" onclick="selectButton(this)">4</button>
+    <button class="button purple" onclick="selectButton(this)">5</button>
+    <button class="button purple" onclick="selectButton(this)">6</button>
+    <button class="button purple" onclick="selectButton(this)">7</button>
+  </div>
+  
+  <div class="question">You enjoy outdoor activities.</div>
+  <div class="buttons" data-question="2">
+    <button class="button green" onclick="selectButton(this)">1</button>
+    <button class="button green" onclick="selectButton(this)">2</button>
+    <button class="button green" onclick="selectButton(this)">3</button>
+    <button class="button grey" onclick="selectButton(this)">4</button>
+    <button class="button purple" onclick="selectButton(this)">5</button>
+    <button class="button purple" onclick="selectButton(this)">6</button>
+    <button class="button purple" onclick="selectButton(this)">7</button>
+  </div>
+  <button class="submit-button" onclick="submitSurvey()">Submit Survey</button>
+</div>
+<script>
+function selectButton(button) {
+  // Get the container of the current question
+  var questionContainer = button.closest('.buttons');
+  
+  // Clear previous selection for this question
+  var buttons = questionContainer.querySelectorAll('.button');
+  buttons.forEach(function(btn) {
+    btn.classList.remove('selected');
+  });
+  
+  // Mark the current button as selected
+  button.classList.add('selected');
+}
+
+function submitSurvey() {
+  // Iterate through all question containers to gather selected values
+  var allQuestions = document.querySelectorAll('.buttons');
+  var surveyData = Array.from(allQuestions).map(function(questionContainer, index) {
+    var selectedButton = questionContainer.querySelector('.button.selected');
+    // Return the value or null if nothing is selected
+    return selectedButton ? parseInt(selectedButton.textContent) - 1: null;
+  });
+
+  // Construct the payload
+  var payload = {
+    name: 'My Survey', // Replace with dynamic survey name if needed
+    numbers: surveyData
+  };
+
+  // Send the data to the Flask server
+  fetch('http://132.145.18.117:8080/submit_survey', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+    // Handle the response here
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+</script>
+
+</body>
+</html>
