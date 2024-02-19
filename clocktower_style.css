@@ -1,9 +1,10 @@
+/* Apply to the body for overall font */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4; /* Light grey for a neutral, bright background */
-    color: #333; /* Dark grey for contrast and readability */
-    margin: 0;
-    padding: 0;
+  font-family: 'Roboto', sans-serif; /* Or any modern font */
+  line-height: 1.6;
+  color: #333; /* Adjust for better readability */
+  margin: 0;
+  padding: 0;
 }
 
 header {
@@ -13,26 +14,82 @@ header {
     text-align: center;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
+h1, h2, h3 {
+  margin-bottom: 0.5em;
+}
+/* Example color scheme */
+:root {
+  --primary-color: #007bff; /* Main color */
+  --secondary-color: #6c757d; /* Supporting color */
+  --background-color: #f8f9fa; /* Light background */
+  --text-color: #5a5a5a; /* Primary text color */
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 10px;
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+/* Navigation styles */
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 nav ul li a {
-    color: #FFFFFF; /* White links for contrast against the purple background */
-    text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: var(--primary-color);
 }
 
-section {
+nav ul li a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+article {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 10px;
+  margin-bottom: 5px;
+}
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  /* Adjust article or other elements for smaller screens */
+}
+
+/* Container holding the roles */
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     padding: 20px;
-    border-bottom: 1px solid #ccc; /* Lighter border for subtle division */
 }
-
-h1, h2 {
-    color: #3A9AD9; /* A vibrant blue for headings, adding a pop of color */
+  
+  /* Individual role item styling */
+.role-item {
+    background: #f0f0f0; /* Light grey background, can change as needed */
+    border: 1px solid #ddd; /* Light border for each item */
+    border-radius: 5px; /* Rounded corners for the items */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+  
+@media (min-width: 1024px) {
+    .category-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 items in one row on large screens */
+    }
 }
